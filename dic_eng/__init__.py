@@ -4,6 +4,7 @@
 from openpyxl import Workbook, load_workbook
 from bs4 import BeautifulSoup
 import urllib3
+import trans as bs
 
 wb = load_workbook('C:\\words.xlsx')
 ws = wb.active
@@ -30,8 +31,7 @@ def getRowArray(rn):
 
 # soup동작
 def getDic(word):
-    response = urllib3.
-    return 'result'
+    return bs.trans(word)
 
 def putValue(arr):
     spell = getAlphabet(arr[0][0:1])
