@@ -1,11 +1,13 @@
 import urllib3
 from bs4 import BeautifulSoup
 
+# 태그 제거
 def html2text(html):
     soup = BeautifulSoup(html, "lxml")
     text_parts = soup.findAll(text=True)
     return ''.join(text_parts)
 
+# 단어 검색
 def trans(word) :
     http = urllib3.PoolManager()
     r = http.request(
@@ -15,18 +17,11 @@ def trans(word) :
     print(type(soup))
     # soup.find_all("a")
     f1 = soup.find_all("dl", attrs={"class": "dic_search_result"})
-    print("*"*50)
     rs = html2text(str(f1))
+    print("#### 결과 확인 ####")
+    print("*"*100)
     print(rs)
-    print("*"*50)
+    print("*"*100)
     return rs
 
-
-
-# soup2 = BeautifulSoup(str(f1), 'html.parser')
-# print(type(soup2))
-#
-# f2 = soup.find_all("span", attrs={"class" : "blind"})
-# print(f2)
-# print(soup.prettify())
 
