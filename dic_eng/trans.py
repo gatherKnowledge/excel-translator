@@ -7,7 +7,7 @@ def html2text(html):
     text_parts = soup.findAll(text=True)
     return ''.join(text_parts)
 
-# 단어 검색
+# 단어 검색 / TODO: req의 두번째 param은 네이버의 검색 url에 종속적이므로 따로 빼내는 편이 좋을 듯
 def trans(word) :
     http = urllib3.PoolManager()
     r = http.request(
